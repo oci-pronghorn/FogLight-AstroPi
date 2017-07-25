@@ -18,7 +18,7 @@ public class Project002 implements FogApp
         ////////////////////////////
         //Connection specifications
         ///////////////////////////
-
+        c.useI2C();
         
     }
 
@@ -28,7 +28,7 @@ public class Project002 implements FogApp
         //////////////////////////////
         //Specify the desired behavior
         //////////////////////////////
-
+        runtime.registerListener(new LEDMatrixBehavior(runtime));
     }
           
 }
