@@ -23,7 +23,7 @@ public class HumiditySensorBehavior implements Behavior,HumidityListener,Startup
     AstroPi_EnvSensors sensor;
     
     public HumiditySensorBehavior(FogRuntime runtime){
-        this.ch = runtime.newCommandChannel();
+        this.ch = runtime.newCommandChannel(I2C_WRITER,200);
         sensor = new AstroPi_EnvSensors(ch,this);
     }
     @Override

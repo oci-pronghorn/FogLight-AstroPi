@@ -53,9 +53,9 @@ public class IMUBehavior implements AccelListener,GyroListener,MagListener,Start
 
     @Override
     public void startup() {
-        sensor.setAccelScale(16);
-        sensor.setGyroScale(2000);
-        sensor.setMagScale(16);
+        sensor.setAccelScale(2);
+        sensor.setGyroScale(245);
+        sensor.setMagScale(2);
         sensor.begin(true, true, true);
     }
     
