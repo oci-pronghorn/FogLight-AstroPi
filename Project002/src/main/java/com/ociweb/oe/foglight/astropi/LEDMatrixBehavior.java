@@ -6,8 +6,8 @@
 package com.ociweb.oe.foglight.astropi;
 
 import com.ociweb.gl.api.StartupListener;
+import com.ociweb.gl.api.TimeListener;
 import com.ociweb.iot.astropi.AstroPi;
-import com.ociweb.iot.astropi.JoyStickListener;
 import com.ociweb.iot.maker.FogCommandChannel;
 import com.ociweb.iot.maker.FogRuntime;
 import static com.ociweb.iot.maker.FogRuntime.I2C_WRITER;
@@ -16,7 +16,7 @@ import static com.ociweb.iot.maker.FogRuntime.I2C_WRITER;
  *
  * @author huydo
  */
-public class LEDMatrixBehavior implements StartupListener{
+public class LEDMatrixBehavior implements StartupListener,TimeListener{
     
     private final FogCommandChannel ch;
     private final AstroPi sth;
@@ -28,7 +28,7 @@ public class LEDMatrixBehavior implements StartupListener{
         int [] R = {63,0,0};
         int [] G = {0,63,0};
         int [] B = {0,0,63};
-        int [] W = {0,0,0};
+        int [] W = {34,34,34};
     
     @Override
     public void startup() {
@@ -46,16 +46,7 @@ public class LEDMatrixBehavior implements StartupListener{
 //        ch.i2cDelay(0x46, 1000000000);
 //        sth.setRotation(90);
 //        ch.i2cDelay(0x46, 1000000000);
- 
-//        int bitmap[][][] =  {{G,G,G,G,G,G,G,G},
-//                             {G,G,R,G,G,G,G,G},
-//                             {G,R,G,G,G,G,G,G},
-//                             {R,R,R,R,R,R,R,G},
-//                             {G,R,G,G,G,G,G,G},
-//                             {G,G,R,G,G,G,G,G},
-//                             {G,G,G,G,G,G,G,G},
-//                             {G,G,G,G,G,G,G,G}};
-//        sth.setPixels(bitmap);
+
 //        ch.i2cDelay(0x46, 1000000000);
 //        ch.i2cDelay(0x46, 1000000000);
 //        sth.flip_h();
@@ -63,24 +54,27 @@ public class LEDMatrixBehavior implements StartupListener{
 //        sth.setRotation(90);
 //        ch.i2cDelay(0x46, 1000000000);
 //        sth.setRotation(180);
-//    int bitmap[][][] = {{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}, {15, 63, 0}, {15, 63, 0}, {0, 0, 0}, {0, 0, 0}, {0, 0, 0}}, {{0, 0, 0}, {0, 0, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {0, 0, 0}, {0, 0, 0}}, {{0, 0, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {0, 0, 0}}, {{15, 63, 0}, {15, 63, 0}, {0, 0, 0}, {15, 63, 0}, {15, 63, 0}, {0, 0, 0}, {15, 63, 0}, {15, 63, 0}}, {{15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}, {15, 63, 0}}, {{0, 0, 0}, {0, 0, 0}, {15, 63, 0}, {0, 0, 0}, {0, 0, 0}, {15, 63, 0}, {0, 0, 0}, {0, 0, 0}}, {{0, 0, 0}, {15, 63, 0}, {0, 0, 0}, {15, 63, 0}, {15, 63, 0}, {0, 0, 0}, {15, 63, 0}, {0, 0, 0}}, {{15, 63, 0}, {0, 0, 0}, {15, 63, 0}, {0, 0, 0}, {0, 0, 0}, {15, 63, 0}, {0, 0, 0}, {15, 63, 0}}};
-//    sth.setPixels(bitmap);
+    int[][][] bitmap ={{{34, 34, 34}, {34, 34, 34}, {0, 19, 12}, {0, 19, 12}, {34, 34, 34}, {34, 34, 34}, {34, 34, 34}, {34, 34, 34}}, {{34, 34, 34}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {34, 34, 34}, {34, 34, 34}, {34, 34, 34}}, {{34, 5, 0}, {0, 19, 12}, {0, 0, 20}, {0, 19, 12}, {0, 19, 12}, {34, 34, 34}, {34, 34, 34}, {0, 14, 20}}, {{34, 34, 34}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {0, 14, 20}, {0, 14, 20}, {0, 14, 20}, {0, 14, 20}}, {{34, 34, 34}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {0, 14, 20}, {0, 14, 20}, {0, 14, 20}, {0, 14, 20}}, {{34, 34, 34}, {34, 34, 34}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {34, 34, 34}}, {{34, 34, 34}, {34, 34, 34}, {0, 19, 12}, {0, 19, 12}, {0, 19, 12}, {34, 34, 34}, {34, 34, 34}, {34, 34, 34}}, {{34, 34, 34}, {34, 34, 34}, {34, 5, 0}, {34, 34, 34}, {34, 5, 0}, {34, 34, 34}, {34, 34, 34}, {34, 34, 34}}};
+       sth.setPixels(bitmap);
     }
 
 
-//
-//    @Override
-//    public void timeEvent(long l, int i) {
-//        if(blink == 1){
-//            sth.setPixel(3, 2, R);
-//            sth.setPixel(3, 5, R);
-//            blink = 0;
-//        }else{
-//            sth.setPixel(3, 2, B);
-//            sth.setPixel(3, 5, B);
-//            blink = 1;
-//        }
-//    }
+private int blink = 0;
+private int[] O = {34, 5, 0};
+    @Override
+    public void timeEvent(long l, int i) {
+        if(blink == 1){
+            sth.setPixel(7, 2, O);
+            sth.setPixel(7, 3, W);
+            sth.setPixel(7, 4, O);
+            blink = 0;
+        }else{
+            sth.setPixel(7, 2, W);
+            sth.setPixel(7, 3, O);
+            sth.setPixel(7, 4, W);
+            blink = 1;
+        }
+    }
 
     
     

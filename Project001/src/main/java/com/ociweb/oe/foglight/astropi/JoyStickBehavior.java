@@ -7,7 +7,7 @@ package com.ociweb.oe.foglight.astropi;
 
 import com.ociweb.gl.api.StartupListener;
 import com.ociweb.iot.astropi.AstroPi;
-import com.ociweb.iot.astropi.JoyStickListener;
+import com.ociweb.iot.astropi.listeners.JoyStickListener;
 import com.ociweb.iot.maker.FogCommandChannel;
 import com.ociweb.iot.maker.FogRuntime;
 import static com.ociweb.iot.maker.FogRuntime.I2C_WRITER;
@@ -24,7 +24,7 @@ public class JoyStickBehavior implements StartupListener,JoyStickListener{
     
     JoyStickBehavior(FogRuntime runtime){
         this.ch = runtime.newCommandChannel(I2C_WRITER,50000);
-        sth = new AstroPi(ch);
+        sth = new AstroPi(ch,this);
     }
     int [] R = {63,0,0};
     int [] G = {0,63,0};

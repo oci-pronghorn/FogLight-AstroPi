@@ -1,10 +1,10 @@
 package com.ociweb.oe.foglight.astropi;
 
 
-import static com.ociweb.iot.grove.GroveTwig.*;
+import com.ociweb.iot.astropi.AstroPiTwig.AstroPi;
+import com.ociweb.iot.hardware.impl.test.TestHardware;
 
 import com.ociweb.iot.maker.*;
-import static com.ociweb.iot.maker.Port.*;
 
 public class Project003 implements FogApp
 {
@@ -18,7 +18,14 @@ public class Project003 implements FogApp
         ////////////////////////////
         //Connection specifications
         ///////////////////////////
-
+        c.connect(AstroPi.GetAccel);
+        c.connect(AstroPi.GetGyro);
+        c.connect(AstroPi.GetMag);
+        if(c instanceof TestHardware){
+            byte[] dummy ={0};
+            ((TestHardware) c).setI2CValueToRead((byte)28,dummy,1);
+            ((TestHardware) c).setI2CValueToRead((byte)106,dummy,1);
+        }
         
     }
 
@@ -28,6 +35,7 @@ public class Project003 implements FogApp
         //////////////////////////////
         //Specify the desired behavior
         //////////////////////////////
+        runtime.registerListener(new IMUBehavior(runtime));
 
     }
           

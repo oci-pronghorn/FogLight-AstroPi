@@ -2,11 +2,10 @@ package com.ociweb.oe.foglight.astropi;
 
 
 import com.ociweb.iot.astropi.AstroPiTwig.AstroPi;
-import com.ociweb.iot.hardware.impl.test.TestHardware;
 
 import com.ociweb.iot.maker.*;
 
-public class Project004 implements FogApp
+public class Project005 implements FogApp
 {
     ///////////////////////
     //Connection constants 
@@ -18,8 +17,11 @@ public class Project004 implements FogApp
         ////////////////////////////
         //Connection specifications
         ///////////////////////////
-        c.connect(AstroPi.GetTempFromPressureSensor);
-        c.connect(AstroPi.GetPressure);
+        c.connect(AstroPi.CalibrateHumiditySensor);
+        c.connect(AstroPi.GetHumidity);
+        c.connect(AstroPi.GetTempFromHumiditySensor);
+
+        
     }
 
 
@@ -28,7 +30,7 @@ public class Project004 implements FogApp
         //////////////////////////////
         //Specify the desired behavior
         //////////////////////////////
-        runtime.registerListener(new PressureSensorBehavior(runtime));
+        runtime.registerListener(new HumiditySensorBehavior(runtime));
 
     }
           

@@ -19,7 +19,7 @@ public class Project002 implements FogApp
         //Connection specifications
         ///////////////////////////
         c.useI2C();
-        
+        c.setTimerPulseRate(1000);
     }
 
 
