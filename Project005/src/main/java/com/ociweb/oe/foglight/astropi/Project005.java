@@ -17,7 +17,7 @@ public class Project005 implements FogApp
         ////////////////////////////
         //Connection specifications
         ///////////////////////////
-        c.connect(AstroPi.CalibrateHumiditySensor);
+        //c.connect(AstroPi.CalibrateHumiditySensor);
         c.connect(AstroPi.GetHumidity);
         c.connect(AstroPi.GetTempFromHumiditySensor);
 

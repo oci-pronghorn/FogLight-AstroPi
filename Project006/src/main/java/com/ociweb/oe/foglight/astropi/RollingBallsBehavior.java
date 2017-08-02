@@ -4,8 +4,7 @@ import com.ociweb.gl.api.StartupListener;
 import com.ociweb.iot.astropi.AstroPi;
 import com.ociweb.iot.astropi.AstroPi_IMU;
 import com.ociweb.iot.astropi.listeners.AccelListener;
-import com.ociweb.iot.astropi.listeners.GyroListener;
-import com.ociweb.iot.astropi.listeners.MagListener;
+
 import com.ociweb.iot.maker.FogCommandChannel;
 import com.ociweb.iot.maker.FogRuntime;
 import static com.ociweb.iot.maker.FogRuntime.I2C_WRITER;

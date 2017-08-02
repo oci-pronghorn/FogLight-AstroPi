@@ -20,11 +20,11 @@ import static com.ociweb.iot.maker.FogRuntime.I2C_WRITER;
 public class JoyStickBehavior implements StartupListener,JoyStickListener{
     
     private final FogCommandChannel ch;
-    private final AstroPi sth;
+    private final AstroPi screen;
     
     JoyStickBehavior(FogRuntime runtime){
         this.ch = runtime.newCommandChannel(I2C_WRITER,50000);
-        sth = new AstroPi(ch,this);
+        screen = new AstroPi(ch,this);
     }
     int [] R = {63,0,0};
     int [] G = {0,63,0};
@@ -35,30 +35,30 @@ public class JoyStickBehavior implements StartupListener,JoyStickListener{
     @Override
     public void startup() {
         
-        sth.clear();
+        screen.clear();
         
-        sth.setPixel(curRow,curCol,R);
+        screen.setPixel(curRow,curCol,R);
     }
     
     @Override
     public void joystickEvent(int up, int down, int left, int right, int push) {
         System.out.println("hello");
         if(up==1){
-            sth.setPixel(curRow, curCol, W);
+            screen.setPixel(curRow, curCol, W);
             curRow = curRow -1;
-            sth.setPixel(curRow,curCol,R);
+            screen.setPixel(curRow,curCol,R);
         }else if(down == 1){
-            sth.setPixel(curRow,curCol,W);
+            screen.setPixel(curRow,curCol,W);
             curRow = curRow +1;
-            sth.setPixel(curRow,curCol,R);
+            screen.setPixel(curRow,curCol,R);
         }else if(left == 1){
-            sth.setPixel(curRow,curCol,W);
+            screen.setPixel(curRow,curCol,W);
             curCol = curCol -1;
-            sth.setPixel(curRow,curCol,R);
+            screen.setPixel(curRow,curCol,R);
         }else if(right ==1){
-            sth.setPixel(curRow,curCol,W);
+            screen.setPixel(curRow,curCol,W);
             curCol = curCol +1;
-            sth.setPixel(curRow,curCol,R);
+            screen.setPixel(curRow,curCol,R);
         }
     }
     
