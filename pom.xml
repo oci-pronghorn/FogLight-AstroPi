@@ -7,15 +7,14 @@
   <packaging>pom</packaging>
  
   <modules>
-    <module>Project001</module>
-    <module>Project002</module>
-    <module>Project003</module>
-    <module>Project004</module>
-    <module>Project006</module>
-    <module>Project007</module>
-    <module>Project008</module>
     <module>Project009</module>
     <module>Project010</module>
-    <module>Project005</module>
+    <module>RollingBall</module>
+    <module>SnakeGame</module>
+    <module>JoyStick</module>
+    <module>LEDMatrix</module>
+    <module>IMUExample</module>
+    <module>PressureSensor</module>
+    <module>HumiditySensor</module>
   </modules>
 </project>
