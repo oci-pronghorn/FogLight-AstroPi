@@ -21,8 +21,6 @@ public class Project001 implements FogApp
         //Connection specifications
         ///////////////////////////
 
-        c.useI2C();
-        c.enableTelemetry();
         c.connect(AstroPiTwig.AstroPi.GetJoystick,300);
 
         if(c instanceof TestHardware){

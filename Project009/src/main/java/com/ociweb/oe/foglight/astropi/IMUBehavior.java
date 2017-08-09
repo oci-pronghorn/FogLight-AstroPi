@@ -5,7 +5,7 @@
  */
 package com.ociweb.oe.foglight.astropi;
 
-import com.ociweb.gl.api.StartupListener;
+import com.ociweb.gl.api.Behavior;
 import com.ociweb.iot.astropi.IMUTransducer;
 import com.ociweb.iot.astropi.listeners.*;
 import com.ociweb.iot.maker.FogCommandChannel;
@@ -15,7 +15,7 @@ import com.ociweb.iot.maker.FogRuntime;
  *
  * @author huydo
  */
-public class IMUBehavior implements AccelListener,GyroListener,MagListener,StartupListener {
+public class IMUBehavior implements MagListener,Behavior {
     
     FogCommandChannel ch;
     IMUTransducer sensor;
@@ -23,23 +23,6 @@ public class IMUBehavior implements AccelListener,GyroListener,MagListener,Start
     public IMUBehavior(FogRuntime runtime){
         this.ch = runtime.newCommandChannel();
         sensor = new IMUTransducer(ch,this);
-    }
-    
-    @Override
-    public void accelerationValues(double x, double y, double z) {
-        System.out.println("___accel value in g (1g = 9.8 m/s2)___");
-        System.out.println("x: "+x);
-        System.out.println("y: "+y);
-        System.out.println("z: "+z);
-    }
-
-    @Override
-    public void gyroscopeValues(double x, double y, double z) {
-        System.out.println("___gyro___");
-        System.out.println("x: "+x);
-        System.out.println("y: "+y);
-        System.out.println("z: "+z);
-
     }
 
     @Override
@@ -50,12 +33,5 @@ public class IMUBehavior implements AccelListener,GyroListener,MagListener,Start
         System.out.println("heading: "+heading);
     }
 
-    @Override
-    public void startup() {
-//        sensor.setAccelScale(2);
-//        sensor.setGyroScale(245);
-//        sensor.setMagScale(2);
-//        sensor.begin(true, true, true);
-    }
     
 }

@@ -1,10 +1,9 @@
 package com.ociweb.oe.foglight.astropi;
 
 
-import static com.ociweb.iot.grove.GroveTwig.*;
+import com.ociweb.iot.astropi.AstroPiTwig.AstroPi;
 
 import com.ociweb.iot.maker.*;
-import static com.ociweb.iot.maker.Port.*;
 
 public class Project009 implements FogApp
 {
@@ -18,7 +17,7 @@ public class Project009 implements FogApp
         ////////////////////////////
         //Connection specifications
         ///////////////////////////
-
+        c.connect(AstroPi.GetMag);
         
     }
 
@@ -28,7 +27,9 @@ public class Project009 implements FogApp
         //////////////////////////////
         //Specify the desired behavior
         //////////////////////////////
+        runtime.registerListener(new IMUBehavior(runtime));
 
     }
           
 }
+
