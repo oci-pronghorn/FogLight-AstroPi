@@ -2,7 +2,6 @@ package com.ociweb.oe.foglight.astropi;
 
 
 import com.ociweb.iot.astropi.AstroPiTwig.AstroPi;
-import com.ociweb.iot.hardware.impl.test.TestHardware;
 
 import com.ociweb.iot.maker.*;
 
