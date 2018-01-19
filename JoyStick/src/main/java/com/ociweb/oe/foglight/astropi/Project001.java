@@ -2,11 +2,9 @@ package com.ociweb.oe.foglight.astropi;
 
 
 import com.ociweb.iot.astropi.AstroPiTwig;
-import static com.ociweb.iot.grove.GroveTwig.*;
 import com.ociweb.iot.hardware.impl.test.TestHardware;
 
 import com.ociweb.iot.maker.*;
-import static com.ociweb.iot.maker.Port.*;
 
 public class Project001 implements FogApp
 {
